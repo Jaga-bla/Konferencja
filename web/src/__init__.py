@@ -7,7 +7,7 @@ from .config import Config
 app = Flask(__name__)
 app.config.from_object("src.config.Config")
 db = SQLAlchemy(app)
-app.secret_key = "asdalifasodfg836493iu32ouyv"
+app.secret_key = app.config['SECRET_KEY']
 
 bcrypt = Bcrypt(app)
 
