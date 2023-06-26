@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #ddd;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wybierz Pokoje do rezerwacji</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>26.06</th>
+        <th>27.06</th>
+        <th>28.06</th>
+        <th>29.06</th>
+        <th>30.06</th>
+      </tr>
+    </thead>
+    <tbody>
+      <form method="post" action="/hotel">
+        {% for room in rooms %}
+        <tr>
+          <td>
+            {% if room.free(26) == True %}
+            <button value="{{ room.room_number }}&26" name="reservarion">
+              Pokój nr: {{ room.room_number }}.<br>
+              {{ room.att_quantity }}-osobowy
+            </button>
+            {% endif %}
+          </td>
+          <td>
+            {% if room.free(27) %}
+            <button value="{{ room.room_number }}&27" name="reservarion">
+              Pokój nr: {{ room.room_number }}.<br>
+              {{ room.att_quantity }}-osobowy
+            </button>
+            {% endif %}
+          </td>
+          <td>
+            {% if room.free(28) %}
+            <button value="{{ room.room_number }}&28" name="reservarion">
+              Pokój nr: {{ room.room_number }}.<br>
+              {{ room.att_quantity }}-osobowy
+            </button>
+            {% endif %}
+          </td>
+          <td>
+            {% if room.free(29) %}
+            <button value="{{ room.room_number }}&29" name="reservarion">
+              Pokój nr: {{ room.room_number }}.<br>
+              {{ room.att_quantity }}-osobowy
+            </button>
+            {% endif %}
+          </td>
+          <td>
+            {% if room.free(30) %}
+            <button value="{{ room.room_number }}&30" name="reservarion">
+              Pokój nr: {{ room.room_number }}.<br>
+              {{ room.att_quantity }}-osobowy
+            </button>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </form>
+    </tbody>
+  </table>
+{% endblock %}

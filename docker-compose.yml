@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./web
+    command: python manage.py run -h 0.0.0.0
+    volumes: 
+      - ./web/:/usr/src/app
+    ports: 
+      - 5001:5000
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres:13
+    volumes: 
+      - postgres_data:/var/lib/postgres/data/
+    environment:
+      - POSTGRES_USER=konf
+      - POSTGRES_PASSWORD=konf
+      - POSTGRES_DB=konf_db
+volumes:
+  postgres_data:

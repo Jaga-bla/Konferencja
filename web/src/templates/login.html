@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="main-block">
+    <div class="left-part">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Zarejestruj się na naszą konferencję</h1>
+      <p>Zobacz jakie prezentacje zostały już zarejestrowane.</p>
+      <div class="btn-group">
+        <a class="btn-item" href="/prezentacje">Lista prezentacji</a>
+      </div>
+    </div>
+    <form method = "post">
+      <div class="title">
+        <i class="fas fa-pencil-alt"></i> 
+        <h2>Zaloguj się tutaj</h2>
+      </div>
+      <div class="info">
+        <input class="fname" type="text" name="email" placeholder="Email">
+        <input class="lname" type="password" name="password" placeholder="Hasło">
+      </div>
+      <button type="submit">Zaloguj się</button>
+    </form>
+  </div>
+  </div>
+  {% endblock %}

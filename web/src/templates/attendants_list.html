@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Imię i nazwisko</th>
+      <th>Tytuł naukowy</th>
+      <th>Email</th>
+      <th>Uniwersytet</th>
+      <th>Udział w bankiecie</th>
+      <th>Udział w wycieczce</th>
+      <th>Koszty</th>
+    </tr>
+  </thead>
+  <tbody>
+      <form method = 'post'>
+      {% for attendant in attendants %}
+    <tr>
+      <td>{{ attendant.att_id }}</td>        
+      <td>{{ attendant.fname }} {{ attendant.lname }}</td>
+      <td>{{ attendant.academic_title }}</td>
+      <td>{{ attendant.email }}</td>
+      <td>{{ attendant.universities }}</td>
+      <td>{{ attendant.is_banquet }}</td>
+      <td>{{ attendant.is_tour }}</td>
+      <td>{{ attendant.costs }}</td>
+      <td>          <a class="nav-link" href="{{ url_for('konf.costs', att_id=attendant.att_id) }}">Koszty</a>
+        <button name = "att_id" value = {{ attendant.att_id }} class="btn btn-secondary">Usuń</button>
+      <a href="{{ url_for('konf.edit_attendant', att_id=attendant.att_id) }}" class="btn btn-secondary">Edytuj</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </form>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa Uniwersytetu</th>
+      <th>Ulica</th>
+      <th>Miasto</th>
+      <th>Kraj</th>
+      <th>Uczestnicy</th>
+      <th>NIP</th>
+    </tr>
+  </thead>
+  <tbody>
+      <form method = 'post'>
+      {% for university in universities %}
+    <tr>
+      <td>{{ university.univ_id }}</td>
+      <td>{{ university.name }}</td>
+      <td>{{ university.street }} </td>
+      <td>{{ university.code }} {{ university.city }}</td>
+      <td>{{ university.country }}</td>
+      <td>{{ university.attendants }}</td>
+      <td>{{ university.NIP }}</td>
+      <td><button name = "univ_id" value = {{ university.univ_id }} class="btn btn-secondary">Usuń</button>
+        <a href="{{ url_for('konf.edit_university', univ_id=university.univ_id) }}" class="btn btn-secondary">Edytuj</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </form>
+  </tbody>
+</table>
+{% endblock %}

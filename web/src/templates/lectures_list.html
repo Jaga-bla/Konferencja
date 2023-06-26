@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <title>Kalendarz Konferencji</title>
+  <style>
+    
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    td.today {
+      background-color: #f9f9f9;
+      font-weight: bold;
+    }
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    a.button {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: grey;
+      color: white;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+    
+    a.button:hover {
+      background-color: #f2f2f2;
+      color:black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalendarz Konferencji</h1>
+  <table>
+    <tr>
+      <th>26.06.2023 Poniedziałek</th>
+      <th>27.06.2023 Wtorek</th>
+      <th>28.06.2023 Środa</th>
+      <th>29.06.2023 Czwartek</th>
+      <th>30.06.2023 Piątek</th>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          {% for lecture in lectures %}
+            {% if lecture.date.day == 26 %}
+              <li>{{ lecture.date.hour }}.00-{{ lecture.date.hour+1 }}.00 <a href="{{ url_for('konf.edit_lecture', lecture_id=lecture.lecture_id) }}">{{ lecture.name }}</a>. 
+                <br>Autor: {{ lecture.attendant }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {% for lecture in lectures %}
+            {% if lecture.date.day == 27 %}
+              <li>{{ lecture.date.hour }}.00-{{ lecture.date.hour+1 }}.00 <a href="{{ url_for('konf.edit_lecture', lecture_id=lecture.lecture_id) }}">{{ lecture.name }}</a>. <br>Autor: {{ lecture.attendant }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {% for lecture in lectures %}
+            {% if lecture.date.day == 28 %}
+              <li>{{ lecture.date.hour }}.00-{{ lecture.date.hour+1 }}.00 <a href="{{ url_for('konf.edit_lecture', lecture_id=lecture.lecture_id) }}">{{ lecture.name }}</a>. <br>Autor: {{ lecture.attendant }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {% for lecture in lectures %}
+            {% if lecture.date.day == 29 %}
+              <li>{{ lecture.date.hour }}.00-{{ lecture.date.hour+1 }}.00 <a href="{{ url_for('konf.edit_lecture', lecture_id=lecture.lecture_id) }}">{{ lecture.name }}</a>. <br>Autor: {{ lecture.attendant }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {% for lecture in lectures %}
+            {% if lecture.date.day == 30 %}
+              <li>{{ lecture.date.hour }}.00-{{ lecture.date.hour+1 }}.00 <a href="{{ url_for('konf.edit_lecture', lecture_id=lecture.lecture_id) }}">{{ lecture.name }}</a>. <br>Autor: {{ lecture.attendant }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <a href="/dodaj/prezentacje" class="button">Dodaj Prezentację</a>
+{% endblock %}

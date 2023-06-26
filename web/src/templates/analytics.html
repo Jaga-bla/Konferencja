@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div> Wykształcenie uczestników:  </div>
+{% for i in data['academic_title']%} 
+<div>{{i[0]}}, ilość: {{i[1]}}</div>
+{% endfor %}
+<div> Średni koszt przypadający na uczestnika: {{data['average_cost']}} zł</div>
+
+<div> Ilość osób biorących udział w wycieczce: {{data['tour']}}</div>
+
+<div> Ilość osób biorących udział w bankiecie: {{data['banquet']}}</div>
+
+<div> Ilość dostępnych pokoi 26.06.2023: {{data['monday']}}</div>
+
+<div> Ilość dostępnych pokoi 27.06.2023: {{data['thuesday']}}</div>
+
+<div> Ilość dostępnych pokoi 28.06.2023: {{data['wednesday']}}</div>
+
+<div> Ilość dostępnych pokoi 29.06.2023: {{data['thursday']}}</div>
+
+<div> Ilość dostępnych pokoi 30.06.2023: {{data['friday']}}</div>
+
+{% endblock %}

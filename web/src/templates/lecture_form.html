@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ 
+<body>
+  <form action="/dodaj/prezentacje" method="post">
+    <div class="title">
+      <i class="fas fa-pencil-alt"></i> 
+      <h2>Zapisz swoją prezentację</h2>
+    </div>
+    <div class="info">
+      <label for="name">Tytuł:</label>
+      <input type="text" id="name" name="name" placeholder="Wprowadź tytuł">
+      
+      <label for="date">Data:</label>
+      <select id="date" name="date">
+        <option selected disabled>Wybierz dostępną datę</option>
+        {% for date in dates %}
+          <option value="{{ date }}">{{ date }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit">Wyślij</button>
+  </form>
+{% endblock %}

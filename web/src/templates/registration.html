@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="main-block">
+    <div class="left-part">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Zarejestruj się na naszą konferencję</h1>
+      <p>Zobacz jakie prezentacje zostały już zarejestrowane.</p>
+      <div class="btn-group">
+        <a class="btn-item" href="/prezentacje">Lista prezentacji</a>
+      </div>
+    </div>
+    <form action="/rejestracja" method = "post">
+      <div class="title">
+        <i class="fas fa-pencil-alt"></i> 
+        <h2>Zarejetruj się tutaj</h2>
+      </div>
+      <div class="info">
+        <input class="fname" type="text" name="fname" placeholder="Imię">
+        <input class="lname" type="text" name="lname" placeholder="Nazwisko">
+        <input class="lname" type="text" name="email" placeholder="E-mail">
+        <input class="lname" type="password" name="password" placeholder="password">
+        <select name = "degree">
+          <option value="" selected>Tytuł naukowy*</option>
+          <option value="">Brak</option>
+          <option value="Licencjat">Licencjat</option>
+          <option value="Inżynier">Inżynier</option>
+          <option value="Magister">Magister</option>
+          <option value="Doktor">Doktor</option>
+          <option value="Profesor">Profesor</option>
+          <option value="">Inne</option>
+        </select>
+        <select name = "univ_name" id="SelectOption">
+          <option value="" selected>Wybierz Uniwersytet*</option>
+          <option value="">Brak</option>
+          {% for university in universities %}
+          <option value={{ university.univ_id }}>{{ university }}</option>
+          {% endfor %}
+          <option value = "add">Nie ma twojego uniwersytetu? Dodaj go do bazy</option>
+        </select>
+        <div style="display:flex">
+          <p>Chcę uczestniczyć w bankiecie.</p>  
+          <input type='checkbox' value='1' name='is_banquet'>
+        </div>
+        <div style="display:flex">
+          <p>Chcę uczestniczyć w wycieczce.</p>  
+          <input type='checkbox' value='1' name='is_tour'>
+        </div>
+      </div>
+      <button type="submit">Zaakcaptuj dane</button>
+    </form>
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#SelectOption').change(function() {
+        var val = $(this).val();
+        if (val === 'add') {
+          window.location.href = '/dodaj/uniwersytet';
+        }
+      });
+    });
+  </script>
+  {% endblock %}

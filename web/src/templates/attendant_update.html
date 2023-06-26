@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method = "post">
+      <div class="title">
+        <i class="fas fa-pencil-alt"></i> 
+        <h2>Edytuj uczestnika</h2>
+      </div>
+      <div class="info">
+        <input class="fname" type="text" name="fname" value={{attendant['fname']}}>
+        <input class="lname" type="text" name="lname" value={{attendant['lname']}}>
+        <input class="lname" type="text" name="email" value={{attendant['email']}}>
+        <select name = "degree">
+          <option value={{attendant['academic_title']}} selected>{{attendant['academic_title']}}</option>
+          <option value="">Brak</option>
+          <option value="Licencjat">Licencjat</option>
+          <option value="Inżynier">Inżynier</option>
+          <option value="Magister">Magister</option>
+          <option value="Doktor">Doktor</option>
+          <option value="Profesor">Profesor</option>
+          <option value="">Inne</option>
+        </select>
+        <select name = "univ_name" id="SelectOption">
+          <option value="" selected>{{attendant['universities'][0]}}</option>
+          <option value="">Brak</option>
+          {% for university in universities %}
+          <option value={{ university.univ_id }}>{{ university }}</option>
+          {% endfor %}
+          <option value = "add">Nie ma twojego uniwersytetu? Dodaj go do bazy</option>
+        </select>
+        <div style="display:flex">
+          <p>Chcę uczestniczyć w bankiecie.</p>  
+          <input type='checkbox' value='1' name='is_banquet'  {% if attendant['is_banquet'] %} checked {% endif %}>
+        </div>
+        <div style="display:flex">
+          <p>Chcę uczestniczyć w wycieczce.</p>  
+          <input type='checkbox' value='1' name='is_tour'>
+        </div>
+      </div>
+      <button type="submit">Zaakcaptuj dane</button>
+    </form>
+  </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#SelectOption').change(function() {
+        var val = $(this).val();
+        if (val === 'add') {
+          window.location.href = '/dodaj/uniwersytet';
+        }
+      });
+    });
+  </script>
+  {% endblock %}

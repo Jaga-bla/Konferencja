@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="main-block">
+    <div class="left-part">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Zarejestruj się na naszą konferencję</h1>
+      <p>Zobacz jakie prezentcje zostały już zarejestrowane.</p>
+      <div class="btn-group">
+        <a class="btn-item" href="/prezentacje">Lista Prezentacji</a>
+      </div>
+    </div>
+    <form action="/dodaj/uniwersytet" method = "post">
+      <div class="title">
+        <i class="fas fa-pencil-alt"></i> 
+        <h2>Dodaj uniwersytet</h2>
+      </div>
+      <div class="info">
+        <input type="text" name="name" placeholder="Nazwa uniwersytetu">
+        <input type="text" name="street" placeholder="Ulica">
+        <input type="text" name="city" placeholder="Miasto">
+        <input type="text" name="code" placeholder="Kod pocztowy">
+        <input type="text" name="country" placeholder="Państwo">
+        <input type="number" name="nip" placeholder="NIP">
+      <button type="submit">Zaakceptuj</button>
+    </form>
+  </div>
+  </div>
+
+  {% endblock %}

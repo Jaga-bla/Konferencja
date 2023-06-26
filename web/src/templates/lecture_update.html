@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ 
+<body>
+  <form method="post">
+    <div class="title">
+      <i class="fas fa-pencil-alt"></i> 
+      <h2>Edytujesz prezentacje</h2>
+    </div>
+    <div class="info">
+      <label for="name">Tytuł:</label>
+      <input type="text" id="name" name="name" value="{{lecture['name']}}">
+      
+      <label for="date">Data:</label>
+      <select id="date" name="date">
+        <option value="{{lecture['date']}}">{{lecture['date']}}</option>
+        {% for date in dates %}
+          <option value="{{ date }}">{{ date }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit">Wyślij</button>
+  </form>
+{% endblock %}
