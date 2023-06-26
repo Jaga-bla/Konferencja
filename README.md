@@ -19,6 +19,9 @@ W celu inicjalizacji projektu, należy w folderze głównym wykonać komendę
 docker-compose up
 ```
 
+Po czasie wymaganym do stworzenia kontenerów, aplikacja dostępna jest pod adresem:<br>
+http://127.0.0.1:5001/prezentacje
+
 Baza danych powinna zawierać przykładowe dane. Aby uzyskać dostęp do panelu administratora, statystki, należy stworzyć użytkownika korzystając z: <br>
 adresu email: admin@admin.pl <br>
 hasło dowolne.
