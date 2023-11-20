@@ -1,6 +1,6 @@
 # Konferencja
 
-Projekt zaliczeniowy na zajęcia Podstawy Baz Danych. Projekt ma na celu przygotowanie bazy danych dla konferencji naukowej dla fizyków. W projekcie znajdują się takie funckje jak: rejestracja, logowanie, dodawania prezentacji, edycja prezentacji (jeżeli jest się autorem), rezerwacja pokoi hotelowych, obliczanie kosztów konferencji oraz dla administratora dodatkowo możliwość usuwania uczestników z bazy danych oraz ich edycja.
+Projekt zaliczeniowy na zajęcia Podstawy Baz Danych. Projekt ma na celu przygotowanie bazy danych dla konferencji naukowej dla fizyków. W projekcie znajdują się takie funkcje jak: rejestracja, logowanie, dodawania prezentacji, edycja prezentacji (jeżeli jest się autorem), rezerwacja pokoi hotelowych, obliczanie kosztów konferencji oraz dla administratora dodatkowo możliwość usuwania uczestników z bazy danych oraz ich edycja.
 
 W projekcie wykorzystano technologie:
 * PostgreSQL
